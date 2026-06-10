@@ -17,8 +17,8 @@ import quick
 и порядок статусов потеряется.
 '''
 
-if __name__ == "main":
-    # Список заказов
+if __name__ == "__main__":
+    # Твой список заказов
     orders = [
         {"id": 101, "price": 5300, "date": "2024-10-01", "status": "paid"},
         {"id": 102, "price": 1200, "date": "2024-01-09", "status": "new"},
@@ -26,5 +26,11 @@ if __name__ == "main":
         {"id": 104, "price": 9900, "date": "2024-10-02", "status": "cancelle"}
     ]
 
-    print(orders[0]["status"])
-    quick.solve_tasks(orders)
+    print(quick.quick_sort(orders, key=lambda x: x["price"]))
+
+    print(quick.quick_sort(orders, key=lambda x: -x["price"]))
+
+    res3 = quick.quick_sort(orders, key=lambda x: x["date"])
+    print(res3[::-1])
+
+    print(quick.quick_sort(orders, key=lambda x: (x["status"], x["price"])))
